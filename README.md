@@ -43,3 +43,25 @@
 多変量正規分布のパラメータ（平均値ベクトルおよび分散共分散行列）、
 GMM のパラメータ（混合重み、平均値ベクトル、分散共分散行列）、
 そしてHMM の状態遷移確率を求める式を導出しています。
+
+## (追記)セットアップ
+
+* sox をインストール
+  * https://sox.sourceforge.net/
+  * `which sox` でパスが通るようにしておく(詳細省略)
+
+* Python3.11をインストール
+  * https://www.python.org/downloads/
+
+* 仮想環境の設定
+
+```shell
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+* ライブラリのインストール
+
+```shell
+pip install -r requirements.txt
+```
