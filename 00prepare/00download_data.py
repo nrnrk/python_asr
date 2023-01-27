@@ -6,6 +6,9 @@
 # https://sites.google.com/site/shinnosuketakamichi/publication/jsut
 #
 
+# avoid "urlopen error [SSL: CERTIFICATE_VERIFY_FAILED]"
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 # ファイルをダウンロードするためのモジュールをインポート
 from urllib.request import urlretrieve
 
@@ -19,7 +22,7 @@ import os
 # メイン関数
 #
 if __name__ == "__main__":
-    
+
     # データの置き場を定義
     data_dir = '../data/original'
 
@@ -29,7 +32,7 @@ if __name__ == "__main__":
     # 音声ファイル(jsutコーパス. zip形式)をダウンロード
     data_archive = os.path.join(data_dir, 'jsut-data.zip')
     print('download jsut-data start')
-    urlretrieve('http://ss-takashi.sakura.ne.jp/corpus/jsut_ver1.1.zip', 
+    urlretrieve('http://ss-takashi.sakura.ne.jp/corpus/jsut_ver1.1.zip',
                 data_archive)
     print('download jsut-data finished')
 
