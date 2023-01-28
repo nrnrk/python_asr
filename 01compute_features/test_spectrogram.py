@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
         # ハミング窓を掛ける
         frame = frame * np.hamming(frame_size)
-      
+
         # 高速フーリエ変換(FFT)を実行
         spectrum = np.fft.fft(frame, n=fft_size)
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     # 横軸(時間軸)を作成する
     time_axis = np.arange(num_samples) / sample_frequency
-    
+
     # 時間波形のプロット
     plt.plot(time_axis, waveform)
 
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     # 2分割された描画領域の下側に
     # スペクトログラムをプロットする
     plt.subplot(2, 1, 2)
-    
+
     # スペクトログラムの最大値を0に合わせて
     # カラーマップのレンジを調整
     spectrogram -= np.max(spectrogram)
@@ -127,8 +127,8 @@ if __name__ == "__main__":
     vmin = - np.abs(np.min(spectrogram)) * 0.7
 
     # ヒストグラムをプロット
-    plt.imshow(spectrogram.T[-1::-1,:], 
-               extent=[0, num_samples / sample_frequency, 
+    plt.imshow(spectrogram.T[-1::-1,:],
+               extent=[0, num_samples / sample_frequency,
                        0, sample_frequency / 2],
                cmap = 'gray',
                vmax = vmax,
