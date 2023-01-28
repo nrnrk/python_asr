@@ -127,6 +127,27 @@ if __name__ == "__main__":
     vmin = - np.abs(np.min(spectrogram)) * 0.7
 
     # ヒストグラムをプロット
+    # spectrogram.T[-1::-1] は spectrogram.T[::-1] と同じ
+    # >>> import numpy as np
+    # >>> np.array([[1,2,3],[4,5,6]])
+    # array([[1, 2, 3],
+    #        [4, 5, 6]])
+    # >>> data = np.array([[1,2,3],[4,5,6]])
+    # >>> data.T
+    # array([[1, 4],
+    #        [2, 5],
+    #        [3, 6]])
+    # >>> data
+    # array([[1, 2, 3],
+    #        [4, 5, 6]])
+    # >>> data.T[::-1]
+    # array([[3, 6],
+    #        [2, 5],
+    #        [1, 4]])
+    # >>> >>> data.T[-1::-1]
+    # array([[3, 6],
+    #        [2, 5],
+    #        [1, 4]])
     plt.imshow(spectrogram.T[-1::-1,:],
                extent=[0, num_samples / sample_frequency,
                        0, sample_frequency / 2],
