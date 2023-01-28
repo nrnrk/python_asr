@@ -60,7 +60,7 @@ if __name__ == "__main__":
     # 振幅スペクトルは左右対称なので，左半分までのみを用いる
     absolute = absolute[:np.int64(fft_size/2) + 1]
 
-    # 対数を取り，対数振幅スペクトルを計算
+    # 対数を取り，対数振幅スペクトルを計算(+1E-7 は flooring 処理)
     log_absolute = np.log(absolute + 1E-7)
 
     #
