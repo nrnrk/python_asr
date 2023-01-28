@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     # FFTを実施する区間分の波形データを取り出す
     frame = waveform[target_index: target_index + fft_size]
-    
+
     # FFTを実施する
     spectrum = np.fft.fft(frame)
 
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     # 横軸(時間軸)を作成する
     time_axis = target_time \
                 + np.arange(fft_size) / sampling_frequency
-    
+
     # 時間波形のプロット
     plt.plot(time_axis, frame)
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     plt.ylabel('Value')
 
     # 横軸の表示領域を分析区間の時刻に制限
-    plt.xlim([target_time, 
+    plt.xlim([target_time,
               target_time + fft_size / sampling_frequency])
 
     # 2分割された描画領域の下側に
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     # 横軸(周波数軸)を作成する
     freq_axis = np.arange(np.int(fft_size/2)+1) \
                 * sampling_frequency / fft_size
-    
+
     # 対数振幅スペクトルをプロット
     plt.plot(freq_axis, log_absolute)
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     plt.ylabel('Value')
 
     # 横軸の表示領域を0～最大周波数に制限
-    plt.xlim([0, sampling_frequency / 2]) 
+    plt.xlim([0, sampling_frequency / 2])
 
     # プロットを保存する
     plt.savefig(out_plot)
