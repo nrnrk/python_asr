@@ -71,6 +71,7 @@ if __name__ == "__main__":
 
     # ケプストラムの高次部分をゼロにする
     cepstrum_low = cepstrum.copy()
+    # 真ん中(ナイキスト周波数) で左右対称になっているので、先頭から n 番目と末尾から n 番目までが対象になる点に注意
     cepstrum_low[(cep_threshold+1):-(cep_threshold)] = 0.0
 
     # 高域カットしたケプストラムを再度フーリエ変換し，
