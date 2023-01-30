@@ -101,7 +101,7 @@ if __name__ == "__main__":
             # 対応するフレーム番号
             idx = alignment[t][file_id]
             # 対応するフレーム番号のスペクトログラムを
-            # コピーして引き延ばす
+            # コピーして引き延ばす。補間などはせず、純粋に同じ値をコピーしている。
             dtw_spectrogram[t, :] = spectrogram[idx, :]
 
         #
