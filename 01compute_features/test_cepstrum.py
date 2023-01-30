@@ -53,9 +53,9 @@ if __name__ == "__main__":
     target_index = np.int(target_time * sampling_frequency)
 
     # FFTを実施する区間分の波形データを取り出す
-    frame = waveform[target_index: 
+    frame = waveform[target_index:
                      target_index + fft_size].copy()
-    
+
     # ハミング窓を掛ける
     frame = frame * np.hamming(fft_size)
 
@@ -89,14 +89,14 @@ if __name__ == "__main__":
 
     # プロットの描画領域を作成
     plt.figure(figsize=(18,10))
-    
+
     # 対数パワースペクトルの横軸(周波数軸)を作成する
     freq_axis = np.arange(fft_size) \
                 * sampling_frequency / fft_size
- 
+
     # 3種類の対数パワースペクトルをプロット
-    for n, log_pow in enumerate([log_power, 
-                                 log_power_ceplo , 
+    for n, log_pow in enumerate([log_power,
+                                 log_power_ceplo ,
                                  log_power_cephi]):
         # 描画領域を3行2列に分割し，1列目にプロット
         plt.subplot(3, 2, n*2+1)
@@ -107,15 +107,15 @@ if __name__ == "__main__":
         plt.ylabel('Value')
 
         # 表示領域を制限
-        plt.xlim([0, sampling_frequency / 2]) 
+        plt.xlim([0, sampling_frequency / 2])
         plt.ylim([0, 30])
 
     # ケプストラムの横軸(ケフレンシ軸=時間軸)を作成する
     qefr_axis = np.arange(fft_size) / sampling_frequency
 
     # 3種類のケプストラムをプロット
-    for n, cepst in enumerate([cepstrum, 
-                               cepstrum_low , 
+    for n, cepst in enumerate([cepstrum,
+                               cepstrum_low ,
                                cepstrum_high]):
         # 描画領域を3行2列に分割し，2列目にプロット
         plt.subplot(3, 2, n*2+2)
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         plt.ylabel('Value')
 
         # 表示領域を制限
-        plt.xlim([0, fft_size / (sampling_frequency * 2)]) 
+        plt.xlim([0, fft_size / (sampling_frequency * 2)])
         plt.ylim([-1.0, 2.0])
 
     # プロットを保存する
