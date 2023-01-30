@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
             # ハミング窓を掛ける
             frame = frame * np.hamming(frame_size)
-          
+
             # 高速フーリエ変換(FFT)を実行
             spectrum = np.fft.fft(frame, n=fft_size)
 
@@ -119,9 +119,9 @@ if __name__ == "__main__":
         vmin = - np.abs(np.min(dtw_spectrogram)) * 0.7
 
         # ヒストグラムをプロット
-        plt.imshow(dtw_spectrogram.T[-1::-1,:], 
+        plt.imshow(dtw_spectrogram.T[-1::-1,:],
                    extent=[0, len(alignment) * \
-                              frame_shift / sample_frequency, 
+                              frame_shift / sample_frequency,
                            0, sample_frequency],
                    cmap = 'gray',
                    vmax = vmax,
