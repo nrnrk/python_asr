@@ -123,6 +123,7 @@ if __name__ == "__main__":
     # スペクトログラムの最大値を0に合わせて
     # カラーマップのレンジを調整
     spectrogram -= np.max(spectrogram)
+    # 0 にして良いかはよくわからなかったが、グラフへの影響は少なくて問題はなさそう
     vmax = np.abs(np.min(spectrogram)) * 0.0
     vmin = - np.abs(np.min(spectrogram)) * 0.7
 
